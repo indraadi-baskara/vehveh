@@ -1,3 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default styles */
+    font-size: 16px; /* TODO: default rem value */
+    scrollbar-width: thin;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+
+    @apply h-full scroll-smooth antialiased;
+  }
+
+  * {
+    font-family: "Inter", sans-serif;
+  }
+
+  *,
+  *::after,
+  *::before,
+  *:focus,
+  *:focus-within,
+  *:focus-visible {
+    @apply outline-none;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    @apply overflow-y-auto;
+
+    scrollbar-width: none; /*For firefox*/
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /*For remainder of the browsers*/
+  }
+}
